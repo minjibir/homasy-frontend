@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card col-md-8 p-5 bg-light shadow">
+
+      <h4 class="text-center mb-5">NEW PATIENT REGISTRATION</h4>
+
+      <div *ngIf="response" class="alert alert-info text-center font-weight-bold">
+        {{response}}
+      </div>
+
+      <form>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="patient.firstName" placeholder="First name" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="middleName">Middle name</label>
+            <input type="text" class="form-control" name="middleName" id="middleName" [(ngModel)]="patient.middleName" placeholder="Middle name">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="patient.lastName" placeholder="Last name" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" [(ngModel)]="patient.phoneNumber" placeholder="### ########" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="gender">Gender</label>
+            <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="maritalStatus">Marital Status</label>
+            <select class="form-control" name="maritalStatus" id="maritalStatus" [(ngModel)]="patient.maritalStatus" placeholder="Marital Status" required>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Widow">Widow</option>
+            </select>
+            
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" name="age" id="age" [(ngModel)]="patient.age" placeholder="Age" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="height">Date of Birth</label>
+            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" placeholder="Height" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary my-4 px-5" type="submit" (click)="registerPatient()">Register</button>
+      </form>
+
+    </div>
+  </div>
+</div>

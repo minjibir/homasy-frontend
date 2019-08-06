@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+
+    <div class="col-md-5 col-sm-10">
+
+      <div class="card p-5 bg-light shadow rounded mt-5">
+
+        <div class="row justify-content-center">
+          <div class="banner"></div>
+        </div>
+
+        <h3 class="my-5 font-weight-bold text-center text-primary">SIGN IN</h3>
+
+        <form class="form">
+
+          <input type="text" class="form-control mb-4 border border-primary rounded" [(ngModel)]="user.username" name="username" placeholder="Username" requered>
+
+          <input type="password" class="form-control border border-primary rounded" [(ngModel)]="user.password" name="password" placeholder="Password" requered>
+
+          <button class="btn btn-primary btn-block shadow-sm my-4 px-4 rounded" (click)="logUserIn()">Login</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

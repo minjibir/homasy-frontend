@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2 mb-">
+  <h1 class="h2">Patients</h1>
+  <!-- 
+  <div>
+    <button class="btn btn-sm btn-primary mr-2" (click)="viewPatientDetails()">View Patient's Details</button>
+  </div> -->
+  <div>
+    <button class="btn btn-sm btn-primary mr-2" (click)="addpatient()">Register Patient</button>
+  </div>
+</div>
+
+<div class="table-responsive">
+
+  <div class="row py-3 mx-md-0">
+    <form class="form-inline">
+      <input class="form-control mr-2" type="text" placeholder="Search patient" aria-label="Search">
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
+
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Pat No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Phone Number</th>
+        <th>Details</th>
+        <th>Update</th>
+        <th>Appointment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{patient.patientId}}</td>
+        <td><input type="text" class="form-control" [(ngModel)]="patient.firstName" name="firstName" required></td>
+        <td><input type="text" class="form-control" [(ngModel)]="patient.lastName" name="lastName" required></td>
+        <td><input type="text" class="form-control" [(ngModel)]="patient.gender" name="gender" required></td>
+        <td><input type="text" class="form-control" [(ngModel)]="patient.age" name="age" required></td>
+        <td><input type="text" class="form-control" [(ngModel)]="patient.phoneNumber" name="phoneNumber" required></td>
+        <td>
+          <button class="btn btn-sm btn-outline-primary" (click)="viewPatientDetails(patient.patientId)">View</button>
+        </td><td>
+          <button class="btn btn-sm btn-outline-success" (click)="updatePatientDetails(patient)">Done</button>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-outline-primary" (click)="addappointment(patient.patientId)">Make</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

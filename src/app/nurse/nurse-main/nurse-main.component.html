@@ -1,0 +1,35 @@
+<div class="my-5">
+  <h1 class="h2">Patients</h1>
+</div>
+
+<div class="table-responsive">
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col">Patient ID</th>
+        <th scope="col">Blood Pressure</th>
+        <th scope="col">Pulse Rate</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Height</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let vital of vitals">
+        <th>{{vital.patientId}}</th>
+        <th><input type="text" class="form-control" [(ngModel)]="vital.bloodPressure"></th>
+        <th><input type="text" class="form-control" [(ngModel)]="vital.pulseRate"></th>
+        <th><input type="text" class="form-control" [(ngModel)]="vital.temperature"></th>
+        <th><input type="text" class="form-control" [(ngModel)]="vital.weight"></th>
+        <th><input type="text" class="form-control" [(ngModel)]="vital.height"></th>
+        <th>{{vital.dateTaken}}</th>
+        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="save(vital)">Save</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

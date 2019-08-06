@@ -1,0 +1,114 @@
+<div class="container mb-5">
+  <h1 class="h2 mb-5">Consultation</h1>
+
+</div>
+
+
+<div class="container mb-5">
+  <div *ngIf="response" class="alert alert-info text-center font-weight-bold my-2">
+    {{response}}
+  </div>
+
+  <form class="card bg-light shadow p-5 border border-secondary">
+
+    <div class="form-inline mb-5">
+      <input type="number" [(ngModel)]="consultation.patientId" name="patientId" id="patientId" class="form-control mr-5" placeholder="Patient's ID">
+      <div class="float-right">
+        <button class="btn btn-sm btn-primary mr-2" (click)="patientdetails()">Patients Record</button>
+        <button class="btn btn-sm btn-primary" (click)="addappointment()">Schedule Follow up</button>
+      </div>
+    </div>
+
+    <!-- [ngModelOptions]="{standalone: true}"  -->
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group mb-4">
+          <label class="h4 text-center text-primary" for="statement">Patient Complaint</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.complaint" name="complaint" id="complaint" placeholder="What did the patient say?"
+          required></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mb-2">
+          <label class="h4 text-center text-primary" for="diagnosis">Investigation</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.investigation" name="investigation" id="investigation " placeholder="What did you conclude as a doctor?"
+          required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group mb-4">
+          <label class="h4 text-center text-primary" for="statement">Findings</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.findings" name="findings" id="findings" placeholder="What did the patient say?"
+          required></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mb-2">
+          <label class="h4 text-center text-primary" for="diagnosis">Diagnosis</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.diagnosis" name="diagnosis" id="diagnosis " placeholder="What did you conclude as a doctor?"
+          required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mb-4">
+      <!-- <div class="form-group mb-4">
+            <label class="h4 text-center text-primary" for="testsRequested">Request Test</label>
+            <textarea rows="5" [(ngModel)]="testRequest.testsRequested" name="testsRequested" id="testsRequested" class="form-control"
+              placeholder="Write all the required test seperated by comma if any."></textarea>
+            </div> -->
+
+            <label class="h4 text-center text-primary" for="prescriptionContent">Prescription</label>
+            <textarea type="text" class="form-control" rows="5" [(ngModel)]="prescription.prescriptionContent" name="prescriptionContent"
+            id="prescriptionContent" placeholder="What do you prescribe?" required></textarea>
+          </div>
+
+          <!-- Test request section -->
+          <label class="h4 text-center text-primary mb-2" for="">Test Request</label>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <select id="testRequestHolder" name="pres" class="form-control mdb-select md-form colorful-select dropdown-primary bg-light"
+                multiple searchable="Search.." size="15" [(ngModel)]="testRequestHolder">
+
+                <option value="" disabled selected>Select a Test (Hold control to select multiple)</option>
+
+                <optgroup class="" label="CHEMISTRY">
+                  <option *ngFor="let chem of chemistry" value={{chem.value}}>{{chem.viewValue}}</option>
+                </optgroup>
+
+                <optgroup class="" label="MICROBIOLOGY SWABS">
+                  <option *ngFor="let micro of microbiology" value={{micro.value}}>{{micro.viewValue}}</option>
+                </optgroup>
+
+                <optgroup label="HAEMATOLOGY">
+                  <option *ngFor="let haem of haematology" value={{haem.value}}>{{haem.viewValue}}</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+<!-- 
+          <div class="col-md-2">
+            <button class="btn btn-secondary btn-block" (click)="addTestType()">Add Test</button>
+          </div>
+        -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" style="height: 250px;" name="testsRequested" id="testsRequested" class="form-control" readonly>{{testRequestHolder}}</textarea>
+            <button class="btn btn-block btn-sm btn-danger" (click)="clearTests()">delete</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="!!consultation.patientId" class="form-group">
+        <button class="btn btn-primary" (click)="submitConsultation()">Submit</button>
+      </div>
+    </form>
+  </div>

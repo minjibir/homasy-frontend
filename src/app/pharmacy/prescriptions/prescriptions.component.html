@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2">
+  <h1 class="h2">Prescriptions</h1>
+</div>
+
+<div class="table-responsive">
+
+  <div class="row py-3 mx-md-0">
+    <form class="form-inline">
+      <input class="form-control mr-2" type="text" placeholder="Patient ID" aria-label="Search">
+      <button class="btn btn-outline-primary" (click)="prescriptionsByPatient()">Search</button>
+    </form>
+  </div>
+
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Prescription ID</th>
+        <th>Patient ID</th>
+        <th>Prescription</th>
+        <th>Date</th>
+        <th>Available Medication</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prescription of prescriptions">
+        <td>{{prescription.prescriptionId}}</td>
+        <td>{{prescription.patientId}}</td>
+        <td>{{prescription.prescriptionContent}}</td>
+        <td>{{prescription.prescriptionDate}}</td>
+        <td><textarea type="text" class="form-control" [(ngModel)]="prescription.available" name="available" id="available" placeholder="Available medications here"></textarea></td>
+        <td><button class="btn btn-sm-outline btn-primary" (click)="markDone(prescription)">Done</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
