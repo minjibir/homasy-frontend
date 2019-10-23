@@ -34,76 +34,76 @@ import { NurseGuard } from './guards/nurse.guard';
 
 const routes: Routes = [
 
-// { path: '', component: EntranceComponent },
-{ path: '', component: LoginComponent },
-{ path: 'login', component: LoginComponent },
+  // { path: '', component: EntranceComponent },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 
-// Records paths
-{
-  path: 'records',
-  component: RecordsComponent,
-  canActivate: [AuthGuard, RecordsGuard],
-  children: [
-  { path: '', component: RecordsMainComponent },
-  { path: 'patients', component: PatientComponent },
-  { path: 'appointments', component: AppointmentComponent },
-  { path: 'addpatient', component: AddPatientComponent },
-  { path: 'addappointment/:id', component: AppointmentFormComponent },
-  { path: 'patientdetails/:id', component: PatientDetailsComponent },
-  { path: 'staffs', component: StaffListComponent},
-  { path: 'registerstaff', component: RegisterStaffComponent },
-  ]
-},
+  // Records paths
+  {
+    path: 'records',
+    component: RecordsComponent,
+    // canActivate: [AuthGuard, RecordsGuard],
+    children: [
+      { path: '', component: RecordsMainComponent },
+      { path: 'patients', component: PatientComponent },
+      { path: 'appointments', component: AppointmentComponent },
+      { path: 'addpatient', component: AddPatientComponent },
+      { path: 'addappointment/:id', component: AppointmentFormComponent },
+      { path: 'patientdetails/:id', component: PatientDetailsComponent },
+      { path: 'staffs', component: StaffListComponent },
+      { path: 'registerstaff', component: RegisterStaffComponent },
+    ]
+  },
 
-// Consultation paths
-{
-  path: 'consultation',
-  component: ConsultationComponent,
-  canActivate: [AuthGuard, ConsultationGuard],
-  children: [
-  { path: '', component: ConsultationMainComponent },
-  ]
-},
+  // Consultation paths
+  {
+    path: 'consultation',
+    component: ConsultationComponent,
+    // canActivate: [AuthGuard, ConsultationGuard],
+    children: [
+      { path: '', component: ConsultationMainComponent },
+    ]
+  },
 
-// Lab paths
-{
-  path: 'lab',
-  component: LabComponent,
-  canActivate: [AuthGuard, LabGuard],
-  children: [
-  // { path: '', component: LabMainComponent },
-  { path: '', component: TestRequestComponent },
-  { path: 'test-requests', component: TestRequestComponent },
-  // { path: 'test-results', component: TestResultComponent },
-  // { path: 'test-result-view/:id', component: TestResultViewComponent },
-  { path: 'test-result-entry/:id', component: TestResultEntryComponent },
-  ]
-},
+  // Lab paths
+  {
+    path: 'lab',
+    component: LabComponent,
+    // canActivate: [AuthGuard, LabGuard],
+    children: [
+      // { path: '', component: LabMainComponent },
+      { path: '', component: TestRequestComponent },
+      { path: 'test-requests', component: TestRequestComponent },
+      // { path: 'test-results', component: TestResultComponent },
+      // { path: 'test-result-view/:id', component: TestResultViewComponent },
+      { path: 'test-result-entry/:id', component: TestResultEntryComponent },
+    ]
+  },
 
-// Pharmacy paths
-{
-  path: 'pharmacy',
-  component: PharmacyComponent,
-  canActivate: [AuthGuard, PharmacyGuard],
-  children: [
-  // { path: '', component: PharmacyMainComponent },
-  { path: '', component: PrescriptionsComponent },
-  { path: 'prescriptions', component: PrescriptionsComponent },
-  // { path: 'records', component: PrescriptionsRecordComponent },
-  ]
-},
+  // Pharmacy paths
+  {
+    path: 'pharmacy',
+    component: PharmacyComponent,
+    // canActivate: [AuthGuard, PharmacyGuard],
+    children: [
+      // { path: '', component: PharmacyMainComponent },
+      { path: '', component: PrescriptionsComponent },
+      { path: 'prescriptions', component: PrescriptionsComponent },
+      // { path: 'records', component: PrescriptionsRecordComponent },
+    ]
+  },
 
-// Nurse paths
-{
-  path: 'nurse',
-  component: NurseComponent,
-  canActivate: [AuthGuard, NurseGuard],
-  children: [
-  { path: '', component: NurseMainComponent }
-  ]
-},
+  // Nurse paths
+  {
+    path: 'nurse',
+    component: NurseComponent,
+    // canActivate: [AuthGuard, NurseGuard],
+    children: [
+      { path: '', component: NurseMainComponent }
+    ]
+  },
 
-{ path: '**', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

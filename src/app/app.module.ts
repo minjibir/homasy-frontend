@@ -40,10 +40,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     EntranceModule,
     AppRoutingModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName: 'Csrf-Token',
-      headerName: 'Csrf-Token',
-    }),
+    // HttpClientXsrfModule.withOptions({
+    //   cookieName: 'Csrf-Token',
+    //   headerName: 'Csrf-Token',
+    // }),
     LabModule,
     PharmacyModule,
     ConsultationModule,
@@ -51,18 +51,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NurseModule
   ],
   providers: [
-  AuthGuard,
-  AuthService,
-    {
-      multi: true,
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppHttpInterceptorService
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true
-    }
+    // AuthGuard,
+    // AuthService,
+    //   {
+    //     multi: true,
+    //     provide: HTTP_INTERCEPTORS,
+    //     useClass: AppHttpInterceptorService
+    //   },
+    //   {
+    //     provide: HTTP_INTERCEPTORS,
+    //     useClass: AuthInterceptorService,
+    //     multi: true
+    //   }
   ],
   bootstrap: [AppComponent]
 })
